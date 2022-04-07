@@ -1,0 +1,36 @@
+# server
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-stacktrace: always
+  port: 8900
+
+spring:
+  application:
+    name: sample-application
+  jackson:
+    default-property-inclusion: non_null
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  jpa:
+    database-platform: H2
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/testdb;DB_CLOSE_DELAY=-1
+  cloud:
+    aws:
+      secretsmanager:
+        name: arn:aws:secretsmanager:ap-northeast-2:084135248124:secret:/secret/puzzle-backend_dev-pLGq7E
+
+logging:
+  level:
+    root: debug
