@@ -29,7 +29,7 @@ spring:
   cloud:
     aws:
       secretsmanager:
-        name: arn:aws:secretsmanager:ap-northeast-2:084135248124:secret:/secret/puzzle-backend_dev-pLGq7E
+        name:
 
 logging:
   level:
